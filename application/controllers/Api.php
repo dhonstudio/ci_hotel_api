@@ -18,7 +18,7 @@ class Api extends CI_Controller {
 		$this->dhonjson = new DhonJSON;
 
 		// unset($_SERVER['PHP_AUTH_USER']);
-		$this->dhonauth->auth('project');
+		$this->dhonauth->auth('hotel');
 		$this->dhonjson->collect();
 	}
 }

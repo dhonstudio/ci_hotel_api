@@ -11,9 +11,9 @@ class Migrate extends CI_Controller
         |  Set up this API User Database, Migration Database, and Migration Class
         | -------------------------------------------------------------------
         */
-        $api_db             = 'project';
-        $this->database     = 'project';
-        $this->migration    = 'project';
+        $api_db             = 'hotel';
+        $this->database     = 'hotel';
+        $this->migration    = 'hotel';
 
         require_once __DIR__ . '/../../assets/ci_libraries/DhonAuth.php';
         require_once __DIR__ . '/../../assets/ci_libraries/DhonJSON.php';
