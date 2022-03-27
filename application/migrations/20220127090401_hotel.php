@@ -14,151 +14,217 @@ class Migration_Hotel {
     
     public function up()
     {
-        /*
-        | -------------------------------------------------------------------
-        |  Api_users table
-        | -------------------------------------------------------------------
-        */
-        $this->migration->dhonmigrate->table = 'api_users';
-        $this->migration->dhonmigrate->ai()->field('id_user', 'INT');
-        $this->migration->dhonmigrate->constraint('100')->unique()->field('username', 'VARCHAR');
-        $this->migration->dhonmigrate->constraint('200')->field('password', 'VARCHAR');
-        $this->migration->dhonmigrate->field('stamp', 'INT');
-        $this->migration->dhonmigrate->add_key('id_user');
-        $this->migration->dhonmigrate->create_table();
-
-        $this->migration->dhonmigrate->insert(['username' => 'admin', 'password' => password_hash('admin', PASSWORD_DEFAULT)]);
-        
         // /*
         // | -------------------------------------------------------------------
-        // |  Kesku table
+        // |  Api_users table
         // | -------------------------------------------------------------------
         // */
-        // $this->migration->dhonmigrate->table = 'kesku_akun';
-        // $this->migration->dhonmigrate->ai()->field('id_akun', 'INT');
-        // $this->migration->dhonmigrate->field('id_book', 'INT');
-        // $this->migration->dhonmigrate->constraint('200')->field('akunName', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('1')->field('akunType', 'INT');
-        // $this->migration->dhonmigrate->constraint('13,2')->default(0.00)->field('budgeted', 'DECIMAL');
-        // $this->migration->dhonmigrate->constraint('2')->default(0)->field('periode', 'INT');
-        // $this->migration->dhonmigrate->default(0)->field('position', 'INT');
-        // $this->migration->dhonmigrate->default(1)->field('is_active', 'INT');
+        // $this->migration->dhonmigrate->table = 'api_users';
+        // $this->migration->dhonmigrate->ai()->field('id_user', 'INT');
+        // $this->migration->dhonmigrate->constraint('100')->unique()->field('username', 'VARCHAR');
+        // $this->migration->dhonmigrate->constraint('200')->field('password', 'VARCHAR');
         // $this->migration->dhonmigrate->field('stamp', 'INT');
-        // $this->migration->dhonmigrate->add_key('id_akun');
-        // $this->migration->dhonmigrate->create_table();
+        // $this->migration->dhonmigrate->add_key('id_user');
+        // $this->migration->dhonmigrate->create_table('force');
 
-        // $this->migration->dhonmigrate->table = 'kesku_trx';
-        // $this->migration->dhonmigrate->ai()->field('id_trx', 'INT');
-        // $this->migration->dhonmigrate->field('id_book', 'INT');
-        // $this->migration->dhonmigrate->default(0)->field('id_akun', 'INT');
-        // $this->migration->dhonmigrate->default(0)->field('to_akun', 'INT');
-        // $this->migration->dhonmigrate->constraint('500')->field('note', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('13,2')->default(0.00)->field('debit', 'DECIMAL');
-        // $this->migration->dhonmigrate->constraint('13,2')->default(0.00)->field('kredit', 'DECIMAL');
-        // $this->migration->dhonmigrate->field('stamp', 'INT');
-        // $this->migration->dhonmigrate->add_key('id_trx');
-        // $this->migration->dhonmigrate->create_table();
+        // $this->migration->dhonmigrate->insert(['username' => 'admin', 'password' => password_hash('admin', PASSWORD_DEFAULT)]);
+        // $this->migration->dhonmigrate->insert(['username' => 'receptionist', 'password' => password_hash('receptionist', PASSWORD_DEFAULT)]);
 
         // /*
         // | -------------------------------------------------------------------
-        // |  Tbl_alumni table
+        // |  Rooms table
         // | -------------------------------------------------------------------
         // */
-        // $this->migration->dhonmigrate->table = 'tbl_alumni';
-        // $this->migration->dhonmigrate->ai()->field('id_alumni', 'INT');
-        // $this->migration->dhonmigrate->constraint('200')->field('fullName', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('100')->field('email', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('50')->field('phone', 'VARCHAR');
-        // $this->migration->dhonmigrate->field('stamp', 'INT');
-        // $this->migration->dhonmigrate->add_key('id_alumni');
-        // $this->migration->dhonmigrate->create_table();
-
-        // $this->migration->dhonmigrate->insert(['fullName' => 'Muhammad Ramadhon', 'email' => 'muhammad_r@email.com', 'phone' => '62812345678']);
-        // $this->migration->dhonmigrate->insert(['fullName' => 'Muhammad Ibrahim', 'email' => 'm_ibrahim@email.com', 'phone' => '628156789012']);
-        // $this->migration->dhonmigrate->insert(['fullName' => 'Shireen Haura', 'email' => 'shireen_h@email.com', 'phone' => '628116789022']);
-        // $this->migration->dhonmigrate->insert(['fullName' => 'Intan Yanti', 'email' => 'intan_y@email.com', 'phone' => '628218901233']);
-        // $this->migration->dhonmigrate->insert(['fullName' => 'Rikpan Maulana', 'email' => 'rmaulana@email.com', 'phone' => '628111223456']);
-
-        // /*
-        // | -------------------------------------------------------------------
-        // |  User table
-        // | -------------------------------------------------------------------
-        // */
-        // $this->migration->dhonmigrate->table = 'user_ci';
-        // $this->migration->dhonmigrate->ai()->field('id', 'INT');
-        // $this->migration->dhonmigrate->constraint('255')->unique()->field('email', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('200')->field('fullName', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('32')->field('auth_key', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('255')->field('password_hash', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('255')->default(null)->field('password_reset_token', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('6')->default('10')->field('status', 'smallint');
+        // $this->migration->dhonmigrate->table = 'rooms';
+        // $this->migration->dhonmigrate->ai()->field('id_room', 'INT');
+        // $this->migration->dhonmigrate->constraint('50')->field('room_name', 'VARCHAR', 'nullable');
+        // $this->migration->dhonmigrate->constraint('200')->field('room_slogan', 'VARCHAR', 'nullable');
+        // $this->migration->dhonmigrate->constraint('500')->field('room_description', 'VARCHAR', 'nullable');
+        // $this->migration->dhonmigrate->constraint('100')->field('room_photo', 'VARCHAR', 'nullable');
+        // $this->migration->dhonmigrate->constraint('100')->field('room_photo_sliding', 'VARCHAR', 'nullable');
+        // $this->migration->dhonmigrate->default('0')->field('room_total', 'INT');
+        // $this->migration->dhonmigrate->default('0')->field('room_price', 'INT');
+        // $this->migration->dhonmigrate->default('0')->field('ac', 'INT');
+        // $this->migration->dhonmigrate->default('0')->field('wifi', 'INT');
+        // $this->migration->dhonmigrate->default('0')->field('nosmoking', 'INT');
+        // $this->migration->dhonmigrate->default('0')->field('breakfast', 'INT');
+        // $this->migration->dhonmigrate->constraint('20')->default('singlebed')->field('bed', 'VARCHAR', 'nullable');
         // $this->migration->dhonmigrate->field('created_at', 'INT');
-        // $this->migration->dhonmigrate->field('updated_at', 'INT');
-        // $this->migration->dhonmigrate->constraint('255')->default(null)->field('verification_token', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('30')->field('google_id', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('200')->field('google_name', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('200')->field('google_picture', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('20')->field('google_gender', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('200')->field('google_link', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('30')->field('fb_id', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('200')->field('fb_name', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('200')->field('fb_picture', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->add_key('id');
-        // $this->migration->dhonmigrate->create_table();
+        // $this->migration->dhonmigrate->field('modified_at', 'INT');
+        // $this->migration->dhonmigrate->add_key('id_room');
+        // $this->migration->dhonmigrate->create_table('force');
 
-        // $this->migration->dhonmigrate->table = 'user_device';
-        // $this->migration->dhonmigrate->ai()->field('id', 'INT');
-        // $this->migration->dhonmigrate->default('0')->field('id_user', 'INT');
-        // $this->migration->dhonmigrate->default('0')->field('id_device', 'INT');
-        // $this->migration->dhonmigrate->default('0')->field('id_address', 'INT');
-        // $this->migration->dhonmigrate->field('stamp', 'INT');
-        // $this->migration->dhonmigrate->field('last_login', 'INT');
-        // $this->migration->dhonmigrate->add_key('id');
-        // $this->migration->dhonmigrate->create_table();
-
-        // $this->migration->dhonmigrate->table = 'devices';
-        // $this->migration->dhonmigrate->ai()->field('id_device', 'INT');
-        // $this->migration->dhonmigrate->constraint('1000')->unique()->field('htmlentities', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('100')->field('device_name', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->add_key('id_device');
-        // $this->migration->dhonmigrate->create_table();
-
-        // $this->migration->dhonmigrate->table = 'addresses';
-        // $this->migration->dhonmigrate->ai()->field('id_address', 'INT');
-        // $this->migration->dhonmigrate->constraint('50')->unique()->field('ip_address', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('1500')->field('ip_info', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->add_key('id_address');
-        // $this->migration->dhonmigrate->create_table();
-
-        // $this->migration->dhonmigrate->table = 'items';
-        // $this->migration->dhonmigrate->ai()->field('id_item', 'INT');
-        // $this->migration->dhonmigrate->constraint('100')->unique()->field('barcode', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('200')->field('item_name', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->field('price', 'INT');
-        // $this->migration->dhonmigrate->field('stamp', 'INT');
-        // $this->migration->dhonmigrate->add_key('id_item');
-        // $this->migration->dhonmigrate->create_table();
+        // $this->migration->dhonmigrate->insert([
+        //     'room_name' => 'Deluxe Hotel', 
+        //     'room_slogan' => 'Make Your Vacation Comfortable', 
+        //     'room_description' => 'Pellentesque habitant morbi tristique senectus et netus ett mauada fames ac turpis egestas. Etiam euismod tempor leo, in suscipit urna condimentum sed. Vivamus augue enim, consectetur ac interdum a, pulvinar ac massa. Nullam malesuada congue', 
+        //     'room_photo' => 'hotel_feture_1.jpg', 
+        //     'room_photo_sliding' => 'image-1.jpg', 
+        //     'room_total' => 3, 
+        //     'room_price' => 100000, 
+        //     'ac' => 1,
+        //     'nosmoking' => 1, 
+        //     'breakfast' => 1, 
+        //     'bed' => 'queenbed',
+        //     'created_at' => time()
+        // ]);
+        // $this->migration->dhonmigrate->insert([
+        //     'room_name' => 'Hotel Bora', 
+        //     'room_slogan' => 'Reserve Room for Family Vacation', 
+        //     'room_description' => 'Pellentesque habitant morbi tristique senectus et netus ett mauada fames ac turpis egestas. Etiam euismod tempor leo, in suscipit urna condimentum sed.', 
+        //     'room_photo' => 'hotel_feture_2.jpg', 
+        //     'room_photo_sliding' => 'image-2.jpg', 
+        //     'room_total' => 3, 
+        //     'room_price' => 200000, 
+        //     'ac' => 1, 
+        //     'wifi' => 1, 
+        //     'nosmoking' => 1, 
+        //     'breakfast' => 1, 
+        //     'bed' => 'kingbed',
+        //     'created_at' => time()
+        // ]);
+        // $this->migration->dhonmigrate->insert([
+        //     'room_name' => 'D’Morvie', 
+        //     'room_slogan' => 'A Best Place To Enjoy Your Life', 
+        //     'room_description' => 'Pellentesque habitant morbi tristique senectus et netus ett mauada fames ac turpis egestas. Etiam euismod tempor leo, in suscipit urna condimentum sed.', 
+        //     'room_photo' => 'hotel_feture_3.jpg', 
+        //     'room_photo_sliding' => 'image-3.jpg', 
+        //     'room_total' => 3, 
+        //     'room_price' => 300000, 
+        //     'ac' => 1, 
+        //     'wifi' => 1, 
+        //     'nosmoking' => 1, 
+        //     'breakfast' => 1, 
+        //     'bed' => 'twinbed',
+        //     'created_at' => time()
+        // ]);
 
         /*
         | -------------------------------------------------------------------
-        |  User Yii Table
+        |  Rooms availability table
         | -------------------------------------------------------------------
         */
-        // $this->migration->dhonmigrate->table = 'user_yii';
-        // $this->migration->dhonmigrate->ai()->field('id', 'INT');
-        // $this->migration->dhonmigrate->constraint('255')->unique()->field('username', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('32')->field('auth_key', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('255')->field('password_hash', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('255')->unique()->default(null)->field('password_reset_token', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('255')->unique()->field('email', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('6')->default('10')->field('status', 'SMALLINT');
-        // $this->migration->dhonmigrate->field('created_at', 'INT');
-        // $this->migration->dhonmigrate->field('updated_at', 'INT');
-        // $this->migration->dhonmigrate->constraint('255')->default(null)->field('verification_token', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->add_key('id');
-        // $this->migration->dhonmigrate->create_table();
+        $this->migration->dhonmigrate->table = 'room_reservations';
+        $this->migration->dhonmigrate->ai()->field('id_reservation', 'INT');
+        $this->migration->dhonmigrate->constraint('6')->field('reservation_code', 'VARCHAR');
+        $this->migration->dhonmigrate->field('id_room', 'INT');
+        $this->migration->dhonmigrate->field('reservation_date', 'INT');
+        $this->migration->dhonmigrate->default('0')->field('id_guest', 'INT');
+        $this->migration->dhonmigrate->default('0')->constraint('1')->field('is_active', 'INT');
 
-        if ($this->dev == false) $this->_dev();
+        $this->migration->dhonmigrate->field('created_at', 'INT');
+        $this->migration->dhonmigrate->field('modified_at', 'INT');
+        $this->migration->dhonmigrate->add_key('id_reservation');
+        $this->migration->dhonmigrate->create_table('force');
+
+        /*
+        | -------------------------------------------------------------------
+        |  Reservation Code table
+        | -------------------------------------------------------------------
+        */
+        $this->migration->dhonmigrate->table = 'reservations';
+        $this->migration->dhonmigrate->constraint('6')->field('reservation_code', 'VARCHAR');
+        $this->migration->dhonmigrate->field('id_room', 'INT');
+        $this->migration->dhonmigrate->default('0')->field('id_guest', 'INT');
+        $this->migration->dhonmigrate->constraint('20')->field('checkin', 'VARCHAR');
+        $this->migration->dhonmigrate->constraint('20')->field('checkout', 'VARCHAR');
+        $this->migration->dhonmigrate->default('0')->field('total_room', 'INT');
+        $this->migration->dhonmigrate->default('0')->constraint('1')->field('is_active', 'INT');
+
+        $this->migration->dhonmigrate->field('created_at', 'INT');
+        $this->migration->dhonmigrate->field('modified_at', 'INT');
+        $this->migration->dhonmigrate->add_key('reservation_code');
+        $this->migration->dhonmigrate->create_table('force');
+
+        /*
+        | -------------------------------------------------------------------
+        |  Guest table
+        | -------------------------------------------------------------------
+        */
+        $this->migration->dhonmigrate->table = 'guests';
+        $this->migration->dhonmigrate->ai()->field('id_guest', 'INT');
+        $this->migration->dhonmigrate->constraint('100')->field('guest_name', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->constraint('200')->field('guest_email', 'VARCHAR', 'nullable');
+
+        $this->migration->dhonmigrate->field('created_at', 'INT');
+        $this->migration->dhonmigrate->field('modified_at', 'INT');
+        $this->migration->dhonmigrate->add_key('id_guest');
+        $this->migration->dhonmigrate->create_table('force');
+
+        // /*
+        // | -------------------------------------------------------------------
+        // |  Facilitations table
+        // | -------------------------------------------------------------------
+        // */
+        // $this->migration->dhonmigrate->table = 'facilitations';
+        // $this->migration->dhonmigrate->ai()->field('id_facilitation', 'INT');
+        // $this->migration->dhonmigrate->constraint('50')->field('fas_type', 'VARCHAR', 'nullable');
+        // $this->migration->dhonmigrate->constraint('50')->field('fas_class', 'VARCHAR', 'nullable');
+        // $this->migration->dhonmigrate->constraint('100')->field('fas_name', 'VARCHAR', 'nullable');
+        // $this->migration->dhonmigrate->constraint('500')->field('fas_description', 'VARCHAR', 'nullable');
+        // $this->migration->dhonmigrate->constraint('100')->field('fas_hour', 'VARCHAR', 'nullable');
+        // $this->migration->dhonmigrate->constraint('100')->field('fas_photo', 'VARCHAR', 'nullable');
+        // $this->migration->dhonmigrate->field('created_at', 'INT');
+        // $this->migration->dhonmigrate->field('modified_at', 'INT');
+        // $this->migration->dhonmigrate->add_key('id_facilitation');
+        // $this->migration->dhonmigrate->create_table('force');
+
+        // $this->migration->dhonmigrate->insert([
+        //     'fas_type' => 'restoran', 
+        //     'fas_class' => 'Hotel', 
+        //     'fas_name' => 'Restoran', 
+        //     'fas_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias officia perferendis modi impedit, rem quasi veritatis. Consectetur obcaecati incidunt, quae rerum, accusamus sapiente fuga vero at. Quia, labore, reprehenderit illum dolorem quae facilis reiciendis quas similique totam sequi ducimus temporibus ex nemo, omnis perferendis earum fugit impedit molestias animi vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam neque blanditiis eveniet nesciunt, beatae similique doloribus, ex impedit rem officiis placeat dignissimos molestias temporibus, in! Minima quod, consequatur neque aliquam.', 
+        //     'fas_hour' => '07:30 - 20:00', 
+        //     'fas_photo' => 'tab_img_1.jpg',
+        //     'created_at' => time()
+        // ]);
+        // $this->migration->dhonmigrate->insert([
+        //     'fas_type' => 'bar', 
+        //     'fas_class' => 'Hotel', 
+        //     'fas_name' => 'Bar', 
+        //     'fas_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias officia perferendis modi impedit, rem quasi veritatis. Consectetur obcaecati incidunt, quae rerum, accusamus sapiente fuga vero at. Quia, labore, reprehenderit illum dolorem quae facilis reiciendis quas similique totam sequi ducimus temporibus ex nemo, omnis perferendis earum fugit impedit molestias animi vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam neque blanditiis eveniet nesciunt, beatae similique doloribus, ex impedit rem officiis placeat dignissimos molestias temporibus, in! Minima quod, consequatur neque aliquam.', 
+        //     'fas_hour' => '07:30 - 20:00', 
+        //     'fas_photo' => 'tab_img_2.jpg',
+        //     'created_at' => time()
+        // ]);
+        // $this->migration->dhonmigrate->insert([
+        //     'fas_type' => 'pickup', 
+        //     'fas_class' => 'Hotel', 
+        //     'fas_name' => 'Pick Up', 
+        //     'fas_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias officia perferendis modi impedit, rem quasi veritatis. Consectetur obcaecati incidunt, quae rerum, accusamus sapiente fuga vero at. Quia, labore, reprehenderit illum dolorem quae facilis reiciendis quas similique totam sequi ducimus temporibus ex nemo, omnis perferendis earum fugit impedit molestias animi vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam neque blanditiis eveniet nesciunt, beatae similique doloribus, ex impedit rem officiis placeat dignissimos molestias temporibus, in! Minima quod, consequatur neque aliquam.', 
+        //     'fas_hour' => '07:30 - 20:00', 
+        //     'fas_photo' => 'tab_img_3.jpg',
+        //     'created_at' => time()
+        // ]);
+        // $this->migration->dhonmigrate->insert([
+        //     'fas_type' => 'swimming', 
+        //     'fas_class' => 'Hotel', 
+        //     'fas_name' => 'Swimming Pool', 
+        //     'fas_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias officia perferendis modi impedit, rem quasi veritatis. Consectetur obcaecati incidunt, quae rerum, accusamus sapiente fuga vero at. Quia, labore, reprehenderit illum dolorem quae facilis reiciendis quas similique totam sequi ducimus temporibus ex nemo, omnis perferendis earum fugit impedit molestias animi vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam neque blanditiis eveniet nesciunt, beatae similique doloribus, ex impedit rem officiis placeat dignissimos molestias temporibus, in! Minima quod, consequatur neque aliquam.', 
+        //     'fas_hour' => '07:30 - 20:00', 
+        //     'fas_photo' => 'tab_img_4.jpg',
+        //     'created_at' => time()
+        // ]);
+        // $this->migration->dhonmigrate->insert([
+        //     'fas_type' => 'spa', 
+        //     'fas_class' => 'Hotel', 
+        //     'fas_name' => 'Spa', 
+        //     'fas_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias officia perferendis modi impedit, rem quasi veritatis. Consectetur obcaecati incidunt, quae rerum, accusamus sapiente fuga vero at. Quia, labore, reprehenderit illum dolorem quae facilis reiciendis quas similique totam sequi ducimus temporibus ex nemo, omnis perferendis earum fugit impedit molestias animi vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam neque blanditiis eveniet nesciunt, beatae similique doloribus, ex impedit rem officiis placeat dignissimos molestias temporibus, in! Minima quod, consequatur neque aliquam.', 
+        //     'fas_hour' => '07:30 - 20:00', 
+        //     'fas_photo' => 'tab_img_5.jpg',
+        //     'created_at' => time()
+        // ]);
+        // $this->migration->dhonmigrate->insert([
+        //     'fas_type' => 'gym', 
+        //     'fas_class' => 'Hotel', 
+        //     'fas_name' => 'Gym', 
+        //     'fas_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias officia perferendis modi impedit, rem quasi veritatis. Consectetur obcaecati incidunt, quae rerum, accusamus sapiente fuga vero at. Quia, labore, reprehenderit illum dolorem quae facilis reiciendis quas similique totam sequi ducimus temporibus ex nemo, omnis perferendis earum fugit impedit molestias animi vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam neque blanditiis eveniet nesciunt, beatae similique doloribus, ex impedit rem officiis placeat dignissimos molestias temporibus, in! Minima quod, consequatur neque aliquam.', 
+        //     'fas_hour' => '07:30 - 20:00', 
+        //     'fas_photo' => 'tab_img_6.jpg',
+        //     'created_at' => time()
+        // ]);
+
+        // if ($this->dev == false) $this->_dev();
     }
 
     private function _dev()
