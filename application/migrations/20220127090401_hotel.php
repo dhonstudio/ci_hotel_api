@@ -16,45 +16,46 @@ class Migration_Hotel {
     
     public function up()
     {
-        // /*
-        // | -------------------------------------------------------------------
-        // |  Api_users table
-        // | -------------------------------------------------------------------
-        // */
-        // $this->migration->dhonmigrate->table = 'api_users';
-        // $this->migration->dhonmigrate->ai()->field('id_user', 'INT');
-        // $this->migration->dhonmigrate->constraint('100')->unique()->field('username', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('200')->field('password', 'VARCHAR');
-        // $this->migration->dhonmigrate->field('stamp', 'INT');
-        // $this->migration->dhonmigrate->add_key('id_user');
-        // $this->migration->dhonmigrate->create_table('force');
+        /*
+        | -------------------------------------------------------------------
+        |  Api_users table
+        | -------------------------------------------------------------------
+        */
+        $this->migration->dhonmigrate->table = 'api_users';
+        $this->migration->dhonmigrate->ai()->field('id_user', 'INT');
+        $this->migration->dhonmigrate->constraint('100')->unique()->field('username', 'VARCHAR');
+        $this->migration->dhonmigrate->constraint('200')->field('password', 'VARCHAR');
+        $this->migration->dhonmigrate->constraint('1')->field('type', 'INT');
+        $this->migration->dhonmigrate->field('stamp', 'INT');
+        $this->migration->dhonmigrate->add_key('id_user');
+        $this->migration->dhonmigrate->create_table('force');
 
-        // $this->migration->dhonmigrate->insert(['username' => 'admin', 'password' => password_hash('admin', PASSWORD_DEFAULT)]);
-        // $this->migration->dhonmigrate->insert(['username' => 'receptionist', 'password' => password_hash('receptionist', PASSWORD_DEFAULT)]);
+        $this->migration->dhonmigrate->insert(['username' => 'admin', 'password' => password_hash('admin', PASSWORD_DEFAULT), 'type' => 1]);
+        $this->migration->dhonmigrate->insert(['username' => 'receptionist', 'password' => password_hash('receptionist', PASSWORD_DEFAULT), 'type' => 2]);
 
-        // /*
-        // | -------------------------------------------------------------------
-        // |  Rooms table
-        // | -------------------------------------------------------------------
-        // */
-        // $this->migration->dhonmigrate->table = 'rooms';
-        // $this->migration->dhonmigrate->ai()->field('id_room', 'INT');
-        // $this->migration->dhonmigrate->constraint('50')->field('room_name', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('200')->field('room_slogan', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('500')->field('room_description', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('100')->field('room_photo', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('100')->field('room_photo_sliding', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->default('0')->field('room_total', 'INT');
-        // $this->migration->dhonmigrate->default('0')->field('room_price', 'INT');
-        // $this->migration->dhonmigrate->default('0')->field('ac', 'INT');
-        // $this->migration->dhonmigrate->default('0')->field('wifi', 'INT');
-        // $this->migration->dhonmigrate->default('0')->field('nosmoking', 'INT');
-        // $this->migration->dhonmigrate->default('0')->field('breakfast', 'INT');
-        // $this->migration->dhonmigrate->constraint('20')->default('singlebed')->field('bed', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->field('created_at', 'INT');
-        // $this->migration->dhonmigrate->field('modified_at', 'INT');
-        // $this->migration->dhonmigrate->add_key('id_room');
-        // $this->migration->dhonmigrate->create_table('force');
+        /*
+        | -------------------------------------------------------------------
+        |  Rooms table
+        | -------------------------------------------------------------------
+        */
+        $this->migration->dhonmigrate->table = 'rooms';
+        $this->migration->dhonmigrate->ai()->field('id_room', 'INT');
+        $this->migration->dhonmigrate->constraint('50')->field('room_name', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->constraint('200')->field('room_slogan', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->constraint('500')->field('room_description', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->constraint('100')->field('room_photo', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->constraint('100')->field('room_photo_sliding', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->default('0')->field('room_total', 'INT');
+        $this->migration->dhonmigrate->default('0')->field('room_price', 'INT');
+        $this->migration->dhonmigrate->default('0')->field('ac', 'INT');
+        $this->migration->dhonmigrate->default('0')->field('wifi', 'INT');
+        $this->migration->dhonmigrate->default('0')->field('nosmoking', 'INT');
+        $this->migration->dhonmigrate->default('0')->field('breakfast', 'INT');
+        $this->migration->dhonmigrate->constraint('20')->default('singlebed')->field('bed', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->field('created_at', 'INT');
+        $this->migration->dhonmigrate->field('modified_at', 'INT');
+        $this->migration->dhonmigrate->add_key('id_room');
+        $this->migration->dhonmigrate->create_table();
 
         // $this->migration->dhonmigrate->insert([
         //     'room_name' => 'Deluxe Hotel', 
@@ -101,75 +102,75 @@ class Migration_Hotel {
         //     'created_at' => time()
         // ]);
 
-        // /*
-        // | -------------------------------------------------------------------
-        // |  Rooms availability table
-        // | -------------------------------------------------------------------
-        // */
-        // $this->migration->dhonmigrate->table = 'room_reservations';
-        // $this->migration->dhonmigrate->ai()->field('id_reservation', 'INT');
-        // $this->migration->dhonmigrate->constraint('6')->field('reservation_code', 'VARCHAR');
-        // $this->migration->dhonmigrate->field('id_room', 'INT');
-        // $this->migration->dhonmigrate->field('reservation_date', 'INT');
-        // $this->migration->dhonmigrate->default('0')->field('id_guest', 'INT');
-        // $this->migration->dhonmigrate->default('0')->constraint('1')->field('is_active', 'INT');
+        /*
+        | -------------------------------------------------------------------
+        |  Rooms availability table
+        | -------------------------------------------------------------------
+        */
+        $this->migration->dhonmigrate->table = 'room_reservations';
+        $this->migration->dhonmigrate->ai()->field('id_reservation', 'INT');
+        $this->migration->dhonmigrate->constraint('6')->field('reservation_code', 'VARCHAR');
+        $this->migration->dhonmigrate->field('id_room', 'INT');
+        $this->migration->dhonmigrate->field('reservation_date', 'INT');
+        $this->migration->dhonmigrate->default('0')->field('id_guest', 'INT');
+        $this->migration->dhonmigrate->default('0')->constraint('1')->field('is_active', 'INT');
 
-        // $this->migration->dhonmigrate->field('created_at', 'INT');
-        // $this->migration->dhonmigrate->field('modified_at', 'INT');
-        // $this->migration->dhonmigrate->add_key('id_reservation');
-        // $this->migration->dhonmigrate->create_table('force');
+        $this->migration->dhonmigrate->field('created_at', 'INT');
+        $this->migration->dhonmigrate->field('modified_at', 'INT');
+        $this->migration->dhonmigrate->add_key('id_reservation');
+        $this->migration->dhonmigrate->create_table();
 
-        // /*
-        // | -------------------------------------------------------------------
-        // |  Reservation Code table
-        // | -------------------------------------------------------------------
-        // */
-        // $this->migration->dhonmigrate->table = 'reservations';
-        // $this->migration->dhonmigrate->constraint('6')->field('reservation_code', 'VARCHAR');
-        // $this->migration->dhonmigrate->field('id_room', 'INT');
-        // $this->migration->dhonmigrate->default('0')->field('id_guest', 'INT');
-        // $this->migration->dhonmigrate->constraint('20')->field('checkin', 'VARCHAR');
-        // $this->migration->dhonmigrate->constraint('20')->field('checkout', 'VARCHAR');
-        // $this->migration->dhonmigrate->default('0')->field('total_room', 'INT');
-        // $this->migration->dhonmigrate->default('0')->constraint('1')->field('is_active', 'INT');
+        /*
+        | -------------------------------------------------------------------
+        |  Reservation Code table
+        | -------------------------------------------------------------------
+        */
+        $this->migration->dhonmigrate->table = 'reservations';
+        $this->migration->dhonmigrate->constraint('6')->field('reservation_code', 'VARCHAR');
+        $this->migration->dhonmigrate->field('id_room', 'INT');
+        $this->migration->dhonmigrate->default('0')->field('id_guest', 'INT');
+        $this->migration->dhonmigrate->constraint('20')->field('checkin', 'VARCHAR');
+        $this->migration->dhonmigrate->constraint('20')->field('checkout', 'VARCHAR');
+        $this->migration->dhonmigrate->default('0')->field('total_room', 'INT');
+        $this->migration->dhonmigrate->default('0')->constraint('1')->field('is_active', 'INT');
 
-        // $this->migration->dhonmigrate->field('created_at', 'INT');
-        // $this->migration->dhonmigrate->field('modified_at', 'INT');
-        // $this->migration->dhonmigrate->add_key('reservation_code');
-        // $this->migration->dhonmigrate->create_table('force');
+        $this->migration->dhonmigrate->field('created_at', 'INT');
+        $this->migration->dhonmigrate->field('modified_at', 'INT');
+        $this->migration->dhonmigrate->add_key('reservation_code');
+        $this->migration->dhonmigrate->create_table();
 
-        // /*
-        // | -------------------------------------------------------------------
-        // |  Guest table
-        // | -------------------------------------------------------------------
-        // */
-        // $this->migration->dhonmigrate->table = 'guests';
-        // $this->migration->dhonmigrate->ai()->field('id_guest', 'INT');
-        // $this->migration->dhonmigrate->constraint('100')->field('guest_name', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('200')->field('guest_email', 'VARCHAR', 'nullable');
+        /*
+        | -------------------------------------------------------------------
+        |  Guest table
+        | -------------------------------------------------------------------
+        */
+        $this->migration->dhonmigrate->table = 'guests';
+        $this->migration->dhonmigrate->ai()->field('id_guest', 'INT');
+        $this->migration->dhonmigrate->constraint('100')->field('guest_name', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->constraint('200')->field('guest_email', 'VARCHAR', 'nullable');
 
-        // $this->migration->dhonmigrate->field('created_at', 'INT');
-        // $this->migration->dhonmigrate->field('modified_at', 'INT');
-        // $this->migration->dhonmigrate->add_key('id_guest');
-        // $this->migration->dhonmigrate->create_table('force');
+        $this->migration->dhonmigrate->field('created_at', 'INT');
+        $this->migration->dhonmigrate->field('modified_at', 'INT');
+        $this->migration->dhonmigrate->add_key('id_guest');
+        $this->migration->dhonmigrate->create_table();
 
-        // /*
-        // | -------------------------------------------------------------------
-        // |  Facilitations table
-        // | -------------------------------------------------------------------
-        // */
-        // $this->migration->dhonmigrate->table = 'facilitations';
-        // $this->migration->dhonmigrate->ai()->field('id_facilitation', 'INT');
-        // $this->migration->dhonmigrate->constraint('50')->field('fas_type', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('50')->field('fas_class', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('100')->field('fas_name', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('500')->field('fas_description', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('100')->field('fas_hour', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->constraint('100')->field('fas_photo', 'VARCHAR', 'nullable');
-        // $this->migration->dhonmigrate->field('created_at', 'INT');
-        // $this->migration->dhonmigrate->field('modified_at', 'INT');
-        // $this->migration->dhonmigrate->add_key('id_facilitation');
-        // $this->migration->dhonmigrate->create_table('force');
+        /*
+        | -------------------------------------------------------------------
+        |  Facilitations table
+        | -------------------------------------------------------------------
+        */
+        $this->migration->dhonmigrate->table = 'facilitations';
+        $this->migration->dhonmigrate->ai()->field('id_facilitation', 'INT');
+        $this->migration->dhonmigrate->constraint('50')->field('fas_type', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->constraint('50')->field('fas_class', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->constraint('100')->field('fas_name', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->constraint('500')->field('fas_description', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->constraint('100')->field('fas_hour', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->constraint('100')->field('fas_photo', 'VARCHAR', 'nullable');
+        $this->migration->dhonmigrate->field('created_at', 'INT');
+        $this->migration->dhonmigrate->field('modified_at', 'INT');
+        $this->migration->dhonmigrate->add_key('id_facilitation');
+        $this->migration->dhonmigrate->create_table();
 
         // $this->migration->dhonmigrate->insert([
         //     'fas_type' => 'restoran', 
@@ -245,17 +246,17 @@ class Migration_Hotel {
         $this->migration->dhonmigrate->field('updated_at', 'INT');
         $this->migration->dhonmigrate->constraint('255')->default(null)->field('verification_token', 'VARCHAR', 'nullable');
         $this->migration->dhonmigrate->add_key('id');
-        $this->migration->dhonmigrate->create_table('force');
+        $this->migration->dhonmigrate->create_table();
 
-        $this->migration->dhonmigrate->insert([
-            'email' => 'contoh@email.com', 
-            'fullName' => 'Tamu Hotel', 
-            'address' => 'Jl. H. Holil', 
-            'phone' => '87700889913', 
-            'auth_key' => random_string('alnum', 32), 
-            'password_hash' => password_hash('contoh', PASSWORD_DEFAULT),
-            'created_at' => time()
-        ]);
+        // $this->migration->dhonmigrate->insert([
+        //     'email' => 'contoh@email.com', 
+        //     'fullName' => 'Tamu Hotel', 
+        //     'address' => 'Jl. H. Holil', 
+        //     'phone' => '87700889913', 
+        //     'auth_key' => random_string('alnum', 32), 
+        //     'password_hash' => password_hash('contoh', PASSWORD_DEFAULT),
+        //     'created_at' => time()
+        // ]);
 
         // if ($this->dev == false) $this->_dev();
     }
